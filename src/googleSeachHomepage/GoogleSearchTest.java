@@ -14,6 +14,7 @@ import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -160,7 +161,7 @@ public class GoogleSearchTest {
 
 		WebElement searchBox = driver.findElement(By.xpath("/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input"));
 		searchBox.sendKeys("Hello");
-		driver.findElement(By.xpath("/html/body/div[1]/div[3]/form/div[1]/div[1]/div[3]/center/input[1]")).click();
+		searchBox.sendKeys(Keys.RETURN);
 		
 		if (driver.findElement(By.xpath("//*[@id=\'hdtb-msb\']/div[1]/div/div[1]")).isDisplayed())
 			actualResult = "Search results are displayed";
